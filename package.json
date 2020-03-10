@@ -1,0 +1,61 @@
+{
+	"name": "vscode-autohide",
+	"displayName": "Auto Hide",
+	"description": "A tool to autohide the sidebar and terminal panel.",
+	"version": "1.0.1",
+	"publisher": "sirmspencer",
+	"repository": "https://github.com/sirmspencer/vscode-autohide",
+	"icon": "Images/Icons/Logo_128.png",
+	"engines": {
+		"vscode": "^1.43.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/src/extension",
+	"contributes": {
+		"configuration": {
+			"type": "object",
+			"title": "Auto Hide configuration",
+			"properties": {
+				"vsAutoHide.autoHideSideBar": {
+					"type": "boolean",
+					"default": true,
+					"description": "Hide the side bar when the user clicks into an editor."
+				},
+				"vsAutoHide.autoHidePanel": {
+					"type": "boolean",
+					"default": true,
+					"description": "Hide the panel (output, terminal, etc.) when the user clicks into an editor."
+				},
+				"vsAutoHide.sideBarDelay": {
+					"type": "number",
+					"default": 450,
+					"description": "How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts."
+				},
+				"vsAutoHide.panelDelay": {
+					"type": "number",
+					"default": 450,
+					"description": "How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"compile": "tsc -watch -p ./",
+		"#test": "node ./node_modules/vscode/bin/test",
+		"vscode:prepublish": "tsc -p ./",
+		"#postinstall": "node ./node_modules/vscode/bin/install",
+		"publish": "vsce publish"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^6.0.40",
+		"mocha": "^2.3.3",
+		"typescript": "^2.9.2",
+		"vscode": "^1.1.36"
+	}
+}
