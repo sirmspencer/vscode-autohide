@@ -21,24 +21,24 @@
 			"type": "object",
 			"title": "Auto Hide configuration",
 			"properties": {
-				"vsAutoHide.autoHideSideBar": {
+				"autoHide.autoHideSideBar": {
 					"type": "boolean",
 					"default": true,
-					"description": "Hide the side bar when the user clicks into an editor."
+					"description": "Hide the side bar when the user clicks into a text editor."
 				},
-				"vsAutoHide.autoHidePanel": {
+				"autoHide.autoHidePanel": {
 					"type": "boolean",
 					"default": true,
-					"description": "Hide the panel (output, terminal, etc.) when the user clicks into an editor."
+					"description": "Hide the panel (output, terminal, etc.) when the user clicks into a text editor."
 				},
-				"vsAutoHide.sideBarDelay": {
+				"autoHide.sideBarDelay": {
 					"type": "number",
 					"default": 450,
 					"description": "How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts."
 				},
-				"vsAutoHide.panelDelay": {
+				"autoHide.panelDelay": {
 					"type": "number",
-					"default": 450,
+					"default": 300,
 					"description": "How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay."
 				}
 			}

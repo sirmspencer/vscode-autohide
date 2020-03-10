@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 import { TextEditorSelectionChangeKind } from "vscode"
 
 export function activate(context: vscode.ExtensionContext) {
-	let config = vscode.workspace.getConfiguration("vsAutoHide");
+	let config = vscode.workspace.getConfiguration("autoHide");
 	if (true) {
 		vscode.window.onDidChangeTextEditorSelection(selection => {
 			let path = vscode.window.activeTextEditor.document.fileName;

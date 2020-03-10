@@ -1,6 +1,6 @@
 # Auto Hide
 
-Extension install page: <https://marketplace.visualstudio.com/items?itemName=venryx.vscode-vtools>
+Extension install page: <https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide>
 
 ## Features
 
@@ -17,13 +17,14 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 
 ## Settings
 
-* `vtools.autoHideSideBar`: Causes the side bar to be hidden whenever the user clicks outside of it. [boolean, default: `false`]
-* `vtools.autoHideBottomPanel`: Causes the bottom panel to be hidden whenever the user clicks outside of it. [boolean, default: `false`]
-* `vtools.autoHideDelay`: How many milliseconds to wait before hiding the side/bottom bars, after clicking outside of them. (helps solve the unintended-selection issue -- especially when scrolled to the right) [number, default: `300`]
+* `autoHide.autoHideSideBar`: Hide the side bar when the user clicks into a text editor. [boolean, default: `true`]
+* `autoHide.autoHideBottomPanel`: Hide the panel (output, terminal, etc.) when the user clicks into a text editor. [boolean, default: `true`]
+* `autoHide.sideBarDelay`: How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts. [number, default: `450`]
+* `autoHide.panelDelay`: How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay. [number, default: `300`]
 
 ## Developing
 
-1) Clone/download repo: https://github.com/Venryx/vscode-vtools.git
+1) Clone/download repo: https://github.com/sirmspencer/vscode-autohide.git
 2) Make code changes in "src" folder.
 3) Run "npm run compile". (this will start compiler in watch mode) [if editing in vscode, Ctrl+Shift+B also works]
 4) In vscode, open the Debug panel and launch the extension from there.
