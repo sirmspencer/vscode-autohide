@@ -7,7 +7,6 @@ Extension install page: <https://marketplace.visualstudio.com/items?itemName=sir
 ### Auto-hide side bar
 Causes the side bar to be hidden whenever the user clicks into the text editor.
 
-
 I highly recommend trying the sidbar on the right side.  The side bar does not so when on the left, the editor text will shift when the side panel opening and closeing.
 
 ![Auto-hide side bar](Images/Features/AutoHideSideBar.gif)
@@ -31,9 +30,7 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 
 ## Publishing
 
-1) Increment the version number in package.json.
-2) Add an entry to the changelog for the new version.
-3) Run "npm publish". (this will publish to npm, and run "vsce publish" to update the live vscode extension)
+https://code.visualstudio.com/api/working-with-extensions/publishing-extension
 
 ## Credit to 'VTools for Visual Studio Code'
 
