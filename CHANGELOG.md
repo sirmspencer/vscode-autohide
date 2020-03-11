@@ -1,5 +1,8 @@
 # Change Log
 
+### 1.0.3
+* Add search keywords
+
 ### 1.0.2
 * Update readme to show Visual Studio Code version requirements.
 * Upgrade mocha to 7.1
