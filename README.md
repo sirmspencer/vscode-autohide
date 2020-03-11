@@ -1,3 +1,5 @@
+## *Requires Visual Studio Code, version 1.43 or higher
+
 # Auto Hide
 
 Extension install page: <https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide>
