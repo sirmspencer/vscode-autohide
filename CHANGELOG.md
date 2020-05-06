@@ -1,5 +1,8 @@
 # Change Log
 
+### 1.0.4
+* FIX changed settings now take immediate affect.
+
 ### 1.0.3
 * Add search keywords
 
