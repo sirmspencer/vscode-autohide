@@ -22,6 +22,8 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 * `autoHide.autoHideBottomPanel`: Hide the panel (output, terminal, etc.) when the user clicks into a text editor. [boolean, default: `true`]
 * `autoHide.sideBarDelay`: How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts. [number, default: `450`]
 * `autoHide.panelDelay`: How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay. [number, default: `300`]
+* `autoHide.hideOnOpen`: Hide side bar and panel when VSCode first opens. [boolean, default: `true`]
+
 
 ## Developing
 

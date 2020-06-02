@@ -1,5 +1,9 @@
 # Change Log
 
+### 1.0.5
+* Added new option to close panel and side bar on open.
+* Convert to space indents in the code base.
+
 ### 1.0.4
 * FIX changed settings now take immediate affect.
 
