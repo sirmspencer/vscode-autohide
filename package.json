@@ -56,7 +56,19 @@
                     "description": "Hide side bar and panel when VSCode first opens."
                 }
             }
-        }
+        },
+        "commands": [
+            {
+                "command": "autoHide.toggleHideSideBar",
+                "category": "Auto Hide",
+                "title": "Toggle Auto Hide Side Bar for Current Workspace"
+            },
+            {
+                "command": "autoHide.toggleHidePanel",
+                "category": "Auto Hide",
+                "title": "Toggle Auto Hide Panel for Current Workspace"
+            }
+        ]
     },
     "scripts": {
         "compile": "tsc -watch -p ./",

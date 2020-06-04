@@ -33,6 +33,17 @@ export function activate(context: vscode.ExtensionContext) {
             }, config.sideBarDelay);
         };
     });
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand("autoHide.toggleHidePanel", async() => {
+            let config = vscode.workspace.getConfiguration("autoHide");
+            await config.update("autoHidePanel", !config.autoHidePanel, vscode.ConfigurationTarget.Workspace);
+        }));
+    context.subscriptions.push(
+        vscode.commands.registerCommand("autoHide.toggleHideSideBar", async() => {
+            let config = vscode.workspace.getConfiguration("autoHide");
+            await config.update("autoHideSideBar", !config.autoHideSideBar, vscode.ConfigurationTarget.Workspace);
+        }));
 }
 
 export function deactivate() {}
