@@ -1,5 +1,8 @@
 # Change Log
 
+### 1.0.6
+* Add commands so the user can toggle the hide options for the local environment.
+
 ### 1.0.5
 * Added new option to close panel and side bar on open.
 * Convert to space indents in the code base.
