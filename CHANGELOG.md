@@ -1,5 +1,8 @@
 # Change Log
 
+### 1.0.7
+* Add "extensionKind" to package.json
+
 ### 1.0.6
 * Add commands so the user can toggle the hide options for the local environment.
 
