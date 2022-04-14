@@ -41,6 +41,11 @@
                     "default": true,
                     "description": "Hide the side bar when the user clicks into a text editor."
                 },
+                "autoHide.autoHideSecondarySideBar": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Hide the secondary side bar when the user clicks into a text editor."
+                },
                 "autoHide.autoHidePanel": {
                     "type": "boolean",
                     "default": true,
@@ -50,6 +55,11 @@
                     "type": "number",
                     "default": 450,
                     "description": "How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts."
+                },
+                "autoHide.secondarySideBarDelay": {
+                    "type": "number",
+                    "default": 450,
+                    "description": "How long to wait before hiding the secondary side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the secondary side bar hiding causes the horizontal scroll to adjust, avoiding conflicts."
                 },
                 "autoHide.panelDelay": {
                     "type": "number",
@@ -68,6 +78,11 @@
                 "command": "autoHide.toggleHideSideBar",
                 "category": "Auto Hide",
                 "title": "Toggle Auto Hide Side Bar for Current Workspace"
+            },
+            {
+                "command": "autoHide.toggleHideSecondarySideBar",
+                "category": "Auto Hide",
+                "title": "Toggle Auto Hide Secondary Side Bar for Current Workspace"
             },
             {
                 "command": "autoHide.toggleHidePanel",
