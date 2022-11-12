@@ -20,6 +20,10 @@ export function activate(context: vscode.ExtensionContext) {
             || !pathIsFile) {                                     // The debug window editor
             return;
         } else {
+            if (config.autoHideReferences) {
+                vscode.commands.executeCommand("closeReferenceSearch");
+            }
+
             setTimeout(function() {
                 if (config.autoHidePanel) {
                     vscode.commands.executeCommand("workbench.action.closePanel");
