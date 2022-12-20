@@ -46,6 +46,11 @@
                     "default": true,
                     "description": "Hide the panel (output, terminal, etc.) when the user clicks into a text editor."
                 },
+                "autoHide.autoHideReferences": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Hide the References panel (`Go to References`) when the user clicks into a text editor."
+                },
                 "autoHide.sideBarDelay": {
                     "type": "number",
                     "default": 450,
