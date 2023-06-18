@@ -41,6 +41,11 @@
                     "default": true,
                     "description": "Hide the side bar when the user clicks into a text editor."
                 },
+                "autoHide.autoHideAuxiliaryBar": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Hide the auxiliary bar (second side bar) when the user clicks into a text editor."
+                },
                 "autoHide.autoHidePanel": {
                     "type": "boolean",
                     "default": true,
@@ -73,6 +78,11 @@
                 "command": "autoHide.toggleHideSideBar",
                 "category": "Auto Hide",
                 "title": "Toggle Auto Hide Side Bar for Current Workspace"
+            },
+            {
+                "command": "autoHide.toggleHideAuxiliaryBar",
+                "category": "Auto Hide",
+                "title": "Toggle Auto Hide Auxiliary Bar for Current Workspace"
             },
             {
                 "command": "autoHide.toggleHidePanel",
