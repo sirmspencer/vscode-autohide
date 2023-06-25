@@ -1,4 +1,4 @@
-## *Requires Visual Studio Code, version 1.43 or higher
+## *This project is in semi maintenance mode.  It does everything I need.  I will accept PRs for new features, but I wont be adding any new features myself
 
 # Auto Hide
 
