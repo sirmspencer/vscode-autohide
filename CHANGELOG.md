@@ -1,5 +1,9 @@
 # Change Log
 
+### 1.0.9
+
+* Hide panels by settings on start.
+
 ### 1.0.8
 
 * user submitted PRs.  I cant remember what they do.  Please help if you submitted them.
