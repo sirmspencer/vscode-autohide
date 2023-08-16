@@ -68,7 +68,7 @@
                 },
                 "autoHide.hideOnOpen": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Hide side bar and panel when VSCode first opens."
                 }
             }
