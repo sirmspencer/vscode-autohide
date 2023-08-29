@@ -2,8 +2,8 @@
   "name": "vscode-autohide",
   "displayName": "Auto Hide",
   "description": "A tool to autohide the sidebar and terminal panel.",
-  "version": "1.0.8",
-  "publisher": "sirmspencer",
+  "version": "1.1.0",
+  "publisher": "sirmspencer addons by nicolasmol",
   "repository": {
     "url": "https://github.com/sirmspencer/vscode-autohide"
   },
