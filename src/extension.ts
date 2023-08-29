@@ -4,11 +4,6 @@ import { TextEditorSelectionChangeKind } from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
   var toggles = [];
-  var matchingIcons = {
-    Sidebar: "$(layout-sidebar-left)",
-    Panel: "$(layout-panel)",
-    AuxiliaryBar: "$(layout-sidebar-right)",
-  };
 
   vscode.window.onDidChangeTextEditorSelection((selection) => {
     let config = vscode.workspace.getConfiguration("autoHide");
@@ -53,7 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (!config.get(`${t}AutoHide`)) {
           toggles[t].toggle("hide");
         }
-        await config.update(`${t}AutoHide`, !config.get(`${t}AutoHide`));
+        await config.update(`${t}AutoHide`, !config.get(`${t}AutoHide`), true);
       })
     );
   });
@@ -67,6 +62,70 @@ export function activate(context: vscode.ExtensionContext) {
   const pinnedColor = new vscode.ThemeColor("autoHide.pinnedColor");
   const unpinnedColor = new vscode.ThemeColor("autoHide.unpinnedColor");
   const PRIORITY_SHOW = 1000;
+  function setToogleButton({ reset = false }: { reset?: boolean } = {}) {
+    let config = vscode.workspace.getConfiguration("workbench");
+    let value = config.get("sideBar.location");
+    if (value == "left") {
+      var matchingIcons = {
+        Sidebar: "$(layout-sidebar-left)",
+        Panel: "$(layout-panel)",
+        AuxiliaryBar: "$(layout-sidebar-right)",
+      };
+    } else {
+      var matchingIcons = {
+        Sidebar: "$(layout-sidebar-right)",
+        Panel: "$(layout-panel)",
+        AuxiliaryBar: "$(layout-sidebar-left)",
+      };
+    }
+
+    ["Sidebar", "Panel", "AuxiliaryBar"].forEach((t) => {
+      if (reset && toggles[t] && toggles[t].button) {
+        toggles[t].button.dispose();
+      }
+
+      toggles[t] = {};
+      toggles[t].button = vscode.window.createStatusBarItem(
+        vscode.StatusBarAlignment.Left,
+        PRIORITY_SHOW
+      );
+      toggles[t].button.color = inactiveColor;
+      toggles[t].button.text = `${matchingIcons[t]}`;
+      toggles[t].button.command = `autoHide.toggleOn${t}`;
+      toggles[t].button.show();
+
+      toggles[t].toggle = (action: string) => {
+        switch (action) {
+          case "show":
+            toggles[t].button.color = unpinnedColor;
+            toggles[t].button.command = `autoHide.pin${t}`;
+            toggles[t].button.text = `$(timeline-view-icon)${matchingIcons[t]}`;
+            break;
+
+          case "pin":
+            toggles[t].button.color = pinnedColor;
+            toggles[t].button.command = `autoHide.unpin${t}`;
+            toggles[t].button.text = `$(pinned)${matchingIcons[t]}`;
+            break;
+
+          case "hide":
+            toggles[t].button.color = inactiveColor;
+            toggles[t].button.text = `${matchingIcons[t]}`;
+            toggles[t].button.command = `autoHide.toggleOn${t}`;
+        }
+        toggles[t].button.show();
+      };
+    });
+  }
+  setToogleButton();
+
+  context.subscriptions.push(
+    vscode.workspace.onDidChangeConfiguration((e) => {
+      if (e.affectsConfiguration("workbench.sideBar.location")) {
+        setToogleButton({ reset: true });
+      }
+    })
+  );
 
   ["Sidebar", "Panel", "AuxiliaryBar"].forEach((t) => {
     // Show the view
@@ -80,7 +139,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Pin the view
     vscode.commands.registerCommand(`autoHide.pin${t}`, () => {
-      config.update(`${t}AutoHide`, false);
+      config.update(`${t}AutoHide`, false, true);
       vscode.commands.executeCommand("setContext", `autoHide.${t}Pinned`, true);
       toggles[t].toggle("pin");
       clearTimeout(toggles[t].timeout);
@@ -88,7 +147,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Unpin & hide the view
     vscode.commands.registerCommand(`autoHide.unpin${t}`, () => {
-      config.update(`${t}AutoHide`, true);
+      config.update(`${t}AutoHide`, true, true);
       vscode.commands.executeCommand(
         "setContext",
         `autoHide.${t}Pinned`,
@@ -99,36 +158,10 @@ export function activate(context: vscode.ExtensionContext) {
       clearTimeout(toggles[t].timeout);
     });
 
-    toggles[t] = {};
-    toggles[t].button = vscode.window.createStatusBarItem(
-      vscode.StatusBarAlignment.Left,
-      PRIORITY_SHOW
-    );
-
-    let timer = null;
-    toggles[t].toggle = (action: string) => {
-      switch (action) {
-        case "show":
-          toggles[t].button.color = unpinnedColor;
-          toggles[t].button.command = `autoHide.pin${t}`;
-          toggles[t].button.text = `$(timeline-view-icon)${matchingIcons[t]}`;
-          break;
-
-        case "pin":
-          toggles[t].button.color = pinnedColor;
-          toggles[t].button.command = `autoHide.unpin${t}`;
-          toggles[t].button.text = `$(pinned)${matchingIcons[t]}`;
-          break;
-
-        case "hide":
-          toggles[t].button.color = inactiveColor;
-          toggles[t].button.text = `${matchingIcons[t]}`;
-          toggles[t].button.command = `autoHide.toggleOn${t}`;
-      }
-      toggles[t].button.show();
-    };
     if (config.get(`${t}AutoHideOnOpen`)) {
       vscode.commands.executeCommand(`autoHide.unpin${t}`);
+    } else {
+      toggles[t].toggle("hide");
     }
   });
 
