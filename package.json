@@ -36,204 +36,58 @@
       "type": "object",
       "title": "Auto Hide configuration",
       "properties": {
-        "autoHide.ReferencesAutoHide": {
+        "autoHide.autoHideSideBar": {
+          "type": "boolean",
           "default": true,
-          "description": "Hide the References panel (`Go to References`) when the user clicks into a text editor.",
-          "type": "boolean"
+          "description": "Hide the side bar when the user clicks into a text editor."
         },
-        "autoHide.SidebarAutoHide": {
+        "autoHide.autoHideAuxiliaryBar": {
+          "type": "boolean",
           "default": true,
-          "description": "Hide the Side Bar when the user clicks into a text editor.",
-          "type": "boolean"
+          "description": "Hide the auxiliary bar (second side bar) when the user clicks into a text editor."
         },
-        "autoHide.SidebarAutoHideDelay": {
+        "autoHide.autoHidePanel": {
+          "type": "boolean",
+          "default": true,
+          "description": "Hide the panel (output, terminal, etc.) when the user clicks into a text editor."
+        },
+        "autoHide.autoHideReferences": {
+          "type": "boolean",
+          "default": true,
+          "description": "Hide the References panel (`Go to References`) when the user clicks into a text editor."
+        },
+        "autoHide.sideBarDelay": {
+          "type": "number",
           "default": 450,
-          "description": "How long to wait before hiding the Side Bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the Side Bar hiding causes the horizontal scroll to adjust, avoiding conflicts..",
-          "type": "number"
+          "description": "How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts."
         },
-        "autoHide.SidebarAutoHideOnOpen": {
+        "autoHide.panelDelay": {
+          "type": "number",
+          "default": 300,
+          "description": "How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay."
+        },
+        "autoHide.hideOnOpen": {
+          "type": "boolean",
           "default": true,
-          "description": "Hide the Side Bar when VSCode first opens.",
-          "type": "boolean"
-        },
-        "autoHide.AuxiliaryBarAutoHide": {
-          "default": true,
-          "description": "Hide the Auxiliary Bar (second side bar) when the user clicks into a text editor.",
-          "type": "boolean"
-        },
-        "autoHide.AuxiliaryBarAutoHideDelay": {
-          "default": 450,
-          "description": "How long to wait before hiding the Auxiliary Bar. Has the same consequences as for the Side Bar.",
-          "type": "number"
-        },
-        "autoHide.AuxiliaryBarAutoHideOnOpen": {
-          "default": true,
-          "description": "Hide the Auxiliary Bar when VSCode first opens.",
-          "type": "boolean"
-        },
-        "autoHide.PanelAutoHide": {
-          "default": true,
-          "description": "Hide the panel (output, terminal, etc.) when the user clicks into a text editor.",
-          "type": "boolean"
-        },
-        "autoHide.PanelAutoHideDelay": {
-          "default": 450,
-          "description": "How long to wait before hiding the Panel. Same as for the Side Bar when the panel is on the side. If the panel is on the bottom, there is no need for delay.",
-          "type": "number"
-        },
-        "autoHide.PanelAutoHideOnOpen": {
-          "default": true,
-          "description": "Hide the Panel when VSCode first opens.",
-          "type": "boolean"
-        },
-        "autoHide.PanelRevealDebugSess": {
-          "default": true,
-          "description": "Reveal the Panel when the mouse leaves the VSCode window during a debug session. This is useful when the Panel is hidden and the user wants to see the debug output.",
-          "type": "boolean"
-        },
-        "autoHide.PanelRevealDebugSessDelay": {
-          "default": 2000,
-          "description": "How long to wait (in milliseconds) before revealing the Panel during a debug session.",
-          "type": "number"
+          "description": "Hide side bar and panel when VSCode first opens."
         }
       }
     },
-    "colors": [
-      {
-        "id": "autoHide.pinnedColor",
-        "description": "Icon color in the status bar when the panel is pinned.",
-        "defaults": {
-          "dark": "#179319",
-          "light": "#11cb14",
-          "highContrast": "#01ff06"
-        }
-      },
-      {
-        "id": "autoHide.unpinnedColor",
-        "description": "Icon color in the status bar when the panel is displayed but unpinned.",
-        "defaults": {
-          "dark": "#c58312",
-          "light": "#e19209",
-          "highContrast": "#ffa200"
-        }
-      }
-    ],
     "commands": [
       {
+        "command": "autoHide.toggleHideSideBar",
         "category": "Auto Hide",
-        "command": "autoHide.toggleHideSidebar",
         "title": "Toggle Auto Hide Side Bar for Current Workspace"
       },
       {
-        "category": "Auto Hide",
-        "command": "autoHide.toggleOnSidebar",
-        "title": "Toggle On Side Bar"
-      },
-      {
-        "category": "Auto Hide",
-        "command": "autoHide.pinSidebar",
-        "title": "Pin Side Bar"
-      },
-      {
-        "category": "Auto Hide",
-        "command": "autoHide.unpinSidebar",
-        "title": "Unpin Side Bar"
-      },
-      {
-        "category": "Auto Hide",
         "command": "autoHide.toggleHideAuxiliaryBar",
-        "title": "Toggle Auto Hide Auxiliary Bar Bar for Current Workspace"
+        "category": "Auto Hide",
+        "title": "Toggle Auto Hide Auxiliary Bar for Current Workspace"
       },
       {
-        "category": "Auto Hide",
-        "command": "autoHide.toggleOnAuxiliaryBar",
-        "title": "Toggle On Auxiliary Bar"
-      },
-      {
-        "category": "Auto Hide",
-        "command": "autoHide.pinAuxiliaryBar",
-        "title": "Pin Auxiliar Bar"
-      },
-      {
-        "category": "Auto Hide",
-        "command": "autoHide.unpinAuxiliaryBar",
-        "title": "Unpin Auxiliary Bar"
-      },
-      {
-        "category": "Auto Hide",
         "command": "autoHide.toggleHidePanel",
+        "category": "Auto Hide",
         "title": "Toggle Auto Hide Panel for Current Workspace"
-      },
-      {
-        "category": "Auto Hide",
-        "command": "autoHide.toggleOnPanel",
-        "title": "Toggle On Panel"
-      },
-      {
-        "category": "Auto Hide",
-        "command": "autoHide.pinPanel",
-        "title": "Pin Panel"
-      },
-      {
-        "category": "Auto Hide",
-        "command": "autoHide.unpinPanel",
-        "title": "Unpin Panel"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "autoHide.toggleOnSidebar",
-        "key": "ctrl+escape",
-        "mac": "ctrl+escape",
-        "when": "!sideBarVisible"
-      },
-      {
-        "command": "autoHide.pinSidebar",
-        "key": "ctrl+escape",
-        "mac": "ctrl+escape",
-        "when": "sideBarVisible && !autoHide.SidebarPinned"
-      },
-      {
-        "command": "autoHide.unpinSidebar",
-        "key": "ctrl+escape",
-        "mac": "ctrl+escape",
-        "when": "sideBarVisible && autoHide.SidebarPinned"
-      },
-      {
-        "command": "autoHide.toggleOnAuxiliaryBar",
-        "key": "alt+escape",
-        "mac": "alt+escape",
-        "when": "!auxiliaryBarVisible"
-      },
-      {
-        "command": "autoHide.pinAuxiliaryBar",
-        "key": "alt+escape",
-        "mac": "alt+escape",
-        "when": "auxiliaryBarVisible && !autoHide.AuxiliaryBarPinned"
-      },
-      {
-        "command": "autoHide.unpinAuxiliaryBar",
-        "key": "alt+escape",
-        "mac": "alt+escape",
-        "when": "auxiliaryBarVisible && autoHide.AuxiliaryBarPinned"
-      },
-      {
-        "command": "autoHide.toggleOnPanel",
-        "key": "ctrl+[Backquote]",
-        "mac": "ctrl+[Backquote]",
-        "when": "!activePanel"
-      },
-      {
-        "command": "autoHide.pinPanel",
-        "key": "ctrl+[Backquote]",
-        "mac": "ctrl+[Backquote]",
-        "when": "activePanel && !autoHide.PanelPinned"
-      },
-      {
-        "command": "autoHide.unpinPanel",
-        "key": "ctrl+[Backquote]",
-        "mac": "ctrl+[Backquote]",
-        "when": "activePanel && autoHide.PanelPinned"
       }
     ]
   },
