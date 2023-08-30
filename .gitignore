@@ -1,8 +1,0 @@
-out
-node_modules
-.key
-*.vsix
-package-lock.json
-pnpm-lock.yaml
-.vscode/settings.json
-.vscode/settings.json
