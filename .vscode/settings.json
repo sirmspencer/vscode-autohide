@@ -1,9 +1,40 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-    "files.exclude": {
-        "out": false // set this to true to hide the "out" folder with the compiled JS files
-    },
-    "search.exclude": {
-        "out": true // set this to false to include "out" folder in search results
-    }
+  "files.exclude": {
+    "**/.git": false,
+    "**/.svn": false,
+    "**/.hg": false,
+    "**/CVS": false,
+    "**/.DS_Store": false,
+    "**/Thumbs.db": false,
+    "**/*.js": false,
+    "**/*.g.dart": false,
+    "**/*.gr.dart": false,
+    "lib/gen": false,
+    "**/*.freezed.dart": false,
+    "**/.*": false,
+    "**/README.md": false,
+    "**/analysis_options.yaml": false,
+    "**/android": false,
+    "**/build": false,
+    "**/fb-account-service.json": false,
+    "**/firebase.json": false,
+    "**/firebase_options.dart": false,
+    "**/firestore.indexes.json": false,
+    "**/firestore.rules": false,
+    "**/generated_plugin_registrant.dart": false,
+    "**/ios": false,
+    "**/linux": false,
+    "**/macos": false,
+    "**/pubspec.lock": false,
+    "**/test": false,
+    "**/web": false,
+    "**/windows": false,
+    "**syncfolder**": false,
+    "out": false
+  },
+  "search.exclude": {
+    "out": true // set this to false to include "out" folder in search results
+  },
+  "explorerExclude.backup": {}
 }
