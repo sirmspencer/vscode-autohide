@@ -3,6 +3,5 @@ node_modules
 .key
 *.vsix
 package-lock.json
-.vscode
 tsconfig.json
-.gitignore
+**/.vscode/
