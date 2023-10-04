@@ -1,5 +1,10 @@
 # Change Log
 
+### 1.0.9
+
+* Automatic hiding of bars and panels when the window is opened works based on "autoHide.hideOnOpen" and their individual options instead of just "autoHide.hideOnOpen".
+* "autoHide.hideOnOpen" option defaults to false
+
 ### 1.0.8
 
 * user submitted PRs.  I cant remember what they do.  Please help if you submitted them.

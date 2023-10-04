@@ -2,7 +2,7 @@
     "name": "vscode-autohide",
     "displayName": "Auto Hide",
     "description": "A tool to autohide the sidebar and terminal panel.",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "publisher": "sirmspencer",
     "repository": {
         "url": "https://github.com/sirmspencer/vscode-autohide"
@@ -68,7 +68,7 @@
                 },
                 "autoHide.hideOnOpen": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Hide side bar and panel when VSCode first opens."
                 }
             }
