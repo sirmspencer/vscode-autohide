@@ -2,4 +2,3 @@ out
 node_modules
 .key
 *.vsix
-package-lock.json

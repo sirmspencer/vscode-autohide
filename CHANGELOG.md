@@ -1,5 +1,10 @@
 # Change Log
 
+### 1.0.10
+
+* Fix deploy of 1.0.9
+* track package-lock.json
+
 ### 1.0.9
 
 * Automatic hiding of bars and panels when the window is opened works based on "autoHide.hideOnOpen" and their individual options instead of just "autoHide.hideOnOpen".

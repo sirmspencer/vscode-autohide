@@ -1,4 +1,4 @@
-## *This project is in semi maintenance mode.  It does everything I need.  I will accept PRs for new features, but I wont be adding any new features myself
+## *This project is in maintenance mode.  It does everything I need.  I will accept PRs for new features, but I won't be adding any new features myself
 
 # Auto Hide
 
@@ -10,7 +10,7 @@ Extension install page: <https://marketplace.visualstudio.com/items?itemName=sir
 
 Causes the side bar to be hidden whenever the user clicks into the text editor.
 
-I highly recommend trying the sidbar on the right side.  The side bar does not so when on the left, the editor text will shift when the side panel opening and closeing.
+I highly recommend trying the sidebar on the right side.  The side bar does not so when on the left, the editor text will shift when the side panel opening and closing.
 
 ![Auto-hide side bar](Images/Features/AutoHideSideBar.gif)
 
@@ -25,7 +25,7 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 * `autoHide.autoHideReferences`: Hide the References panel (`Go to References`) when the user clicks into a text editor. [boolean, default: `true`]
 * `autoHide.sideBarDelay`: How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts. [number, default: `450`]
 * `autoHide.panelDelay`: How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay. [number, default: `300`]
-* `autoHide.hideOnOpen`: Hide side bar and panel when VSCode first opens. [boolean, default: `true`]
+* `autoHide.hideOnOpen`: Hide side bar and panel when VSCode first opens. [boolean, default: `false`]
 
 ## Commands
 
@@ -47,9 +47,16 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 
 ### login
 
+```sh
 vsce login [username]
+```
 
 ### Publish package
+
+```sh
+vsce package
+vsce publish
+```
 
 <https://code.visualstudio.com/api/working-with-extensions/publishing-extension>n>
 
