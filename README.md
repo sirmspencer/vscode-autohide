@@ -41,6 +41,16 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 
 ## Publishing
 
+### Get access token
+
+<https://dev.azure.com/>
+
+### login
+
+vsce login [username]
+
+### Publish package
+
 <https://code.visualstudio.com/api/working-with-extensions/publishing-extension>n>
 
 ## Credit to 'VTools for Visual Studio Code'
