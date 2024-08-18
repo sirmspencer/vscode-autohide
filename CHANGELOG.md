@@ -1,5 +1,9 @@
 # Change Log
 
+### 1.0.11
+
+* Added support for global settings to allow auto-hiding of the side bar, auxiliary bar, and panel across all projects.
+
 ### 1.0.10
 
 * Fix deploy of 1.0.9
