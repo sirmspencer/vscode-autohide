@@ -75,19 +75,34 @@
         },
         "commands": [
             {
-                "command": "autoHide.toggleHideSideBar",
+                "command": "autoHide.toggleHideSideBarWorkspace",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Side Bar for Current Workspace"
+                "title": "Toggle Auto Hide Side Bar (Workspace)"
             },
             {
-                "command": "autoHide.toggleHideAuxiliaryBar",
+                "command": "autoHide.toggleHideAuxiliaryBarWorkspace",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Auxiliary Bar for Current Workspace"
+                "title": "Toggle Auto Hide Auxiliary Bar (Workspace)"
             },
             {
-                "command": "autoHide.toggleHidePanel",
+                "command": "autoHide.toggleHidePanelWorkspace",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Panel for Current Workspace"
+                "title": "Toggle Auto Hide Panel (Workspace)"
+            },
+            {
+                "command": "autoHide.toggleHideSideBarGlobal",
+                "category": "Auto Hide",
+                "title": "Toggle Auto Hide Side Bar (Global)"
+            },
+            {
+                "command": "autoHide.toggleHideAuxiliaryBarGlobal",
+                "category": "Auto Hide",
+                "title": "Toggle Auto Hide Auxiliary Bar (Global)"
+            },
+            {
+                "command": "autoHide.toggleHidePanelGlobal",
+                "category": "Auto Hide",
+                "title": "Toggle Auto Hide Panel (Global)"
             }
         ]
     },
