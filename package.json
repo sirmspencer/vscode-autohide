@@ -92,17 +92,17 @@
             {
                 "command": "autoHide.toggleHideSideBarGlobal",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Side Bar (Global)"
+                "title": "Toggle Auto Hide Side Bar for Current User"
             },
             {
                 "command": "autoHide.toggleHideAuxiliaryBarGlobal",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Auxiliary Bar (Global)"
+                "title": "Toggle Auto Hide Auxiliary Bar for Current User"
             },
             {
                 "command": "autoHide.toggleHidePanelGlobal",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Panel (Global)"
+                "title": "Toggle Auto Hide Panel for Current User"
             }
         ]
     },
