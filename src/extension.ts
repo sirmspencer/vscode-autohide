@@ -65,7 +65,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Workspace commands
     context.subscriptions.push(
-        vscode.commands.registerCommand("autoHide.toggleHideSideBarWorkspace", async () => {
+        vscode.commands.registerCommand("autoHide.toggleHideSideBar", async () => {
             let config = vscode.workspace.getConfiguration("autoHide");
             await config.update(
                 "autoHideSideBar",
@@ -76,7 +76,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand("autoHide.toggleHideAuxiliaryBarWorkspace", async () => {
+        vscode.commands.registerCommand("autoHide.toggleHideAuxiliaryBar", async () => {
             let config = vscode.workspace.getConfiguration("autoHide");
             await config.update(
                 "autoHideAuxiliaryBar",
@@ -87,7 +87,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand("autoHide.toggleHidePanelWorkspace", async () => {
+        vscode.commands.registerCommand("autoHide.toggleHidePanel", async () => {
             let config = vscode.workspace.getConfiguration("autoHide");
             await config.update(
                 "autoHidePanel",
