@@ -77,17 +77,17 @@
             {
                 "command": "autoHide.toggleHideSideBar",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Side Bar"
+                "title": "Toggle Auto Hide Side Bar for Current Workspace"
             },
             {
                 "command": "autoHide.toggleHideAuxiliaryBar",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Auxiliary Bar"
+                "title": "Toggle Auto Hide Auxiliary Bar for Current Workspace"
             },
             {
                 "command": "autoHide.toggleHidePanel",
                 "category": "Auto Hide",
-                "title": "Toggle Auto Hide Panel"
+                "title": "Toggle Auto Hide Panel for Current Workspace"
             },
             {
                 "command": "autoHide.toggleHideSideBarGlobal",
