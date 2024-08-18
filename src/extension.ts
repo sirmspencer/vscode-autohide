@@ -63,40 +63,72 @@ export function activate(context: vscode.ExtensionContext) {
         }, config.sideBarDelay);
     });
 
+    // Workspace commands
     context.subscriptions.push(
-        vscode.commands.registerCommand("autoHide.toggleHidePanel", async () => {
-            let config = vscode.workspace.getConfiguration("autoHide");
-            await config.update(
-                "autoHidePanel",
-                !config.autoHidePanel,
-                vscode.ConfigurationTarget.Workspace
-            );
-        })
-    );
-
-    context.subscriptions.push(
-        vscode.commands.registerCommand("autoHide.toggleHideSideBar", async () => {
+        vscode.commands.registerCommand("autoHide.toggleHideSideBarWorkspace", async () => {
             let config = vscode.workspace.getConfiguration("autoHide");
             await config.update(
                 "autoHideSideBar",
-                !config.autoHideSideBar,
+                !config.get("autoHideSideBar"),
                 vscode.ConfigurationTarget.Workspace
             );
         })
     );
 
     context.subscriptions.push(
-        vscode.commands.registerCommand(
-            "autoHide.toggleHideAuxiliaryBar",
-            async () => {
-                let config = vscode.workspace.getConfiguration("autoHide");
-                await config.update(
-                    "autoHideAuxiliaryBar",
-                    !config.autoHideAuxiliaryBar,
-                    vscode.ConfigurationTarget.Workspace
-                );
-            }
-        )
+        vscode.commands.registerCommand("autoHide.toggleHideAuxiliaryBarWorkspace", async () => {
+            let config = vscode.workspace.getConfiguration("autoHide");
+            await config.update(
+                "autoHideAuxiliaryBar",
+                !config.get("autoHideAuxiliaryBar"),
+                vscode.ConfigurationTarget.Workspace
+            );
+        })
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand("autoHide.toggleHidePanelWorkspace", async () => {
+            let config = vscode.workspace.getConfiguration("autoHide");
+            await config.update(
+                "autoHidePanel",
+                !config.get("autoHidePanel"),
+                vscode.ConfigurationTarget.Workspace
+            );
+        })
+    );
+
+    // Global commands
+    context.subscriptions.push(
+        vscode.commands.registerCommand("autoHide.toggleHideSideBarGlobal", async () => {
+            let config = vscode.workspace.getConfiguration("autoHide");
+            await config.update(
+                "autoHideSideBar",
+                !config.get("autoHideSideBar"),
+                vscode.ConfigurationTarget.Global
+            );
+        })
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand("autoHide.toggleHideAuxiliaryBarGlobal", async () => {
+            let config = vscode.workspace.getConfiguration("autoHide");
+            await config.update(
+                "autoHideAuxiliaryBar",
+                !config.get("autoHideAuxiliaryBar"),
+                vscode.ConfigurationTarget.Global
+            );
+        })
+    );
+
+    context.subscriptions.push(
+        vscode.commands.registerCommand("autoHide.toggleHidePanelGlobal", async () => {
+            let config = vscode.workspace.getConfiguration("autoHide");
+            await config.update(
+                "autoHidePanel",
+                !config.get("autoHidePanel"),
+                vscode.ConfigurationTarget.Global
+            );
+        })
     );
 }
 
