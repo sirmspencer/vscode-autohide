@@ -1,4 +1,4 @@
-## *This project is in maintenance mode.  It does everything I need.  I will accept PRs for new features, but I won't be adding any new features myself
+## *This project is in maintenance mode.  It does everything I need.  I will accept PRs for small new features, but I won't be adding any new features myself.  The readme contains full instructions on how to publish.  Feel free to fork and publish what every fancy or specific changes you want.
 
 # Auto Hide
 
