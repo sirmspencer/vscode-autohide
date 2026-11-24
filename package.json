@@ -2,14 +2,14 @@
     "name": "vscode-autohide",
     "displayName": "Auto Hide",
     "description": "A tool to autohide the sidebar and terminal panel.",
-    "version": "1.0.10",
+    "version": "1.1.0",
     "publisher": "sirmspencer",
     "repository": {
         "url": "https://github.com/sirmspencer/vscode-autohide"
     },
     "icon": "Images/Icons/Logo_128.png",
     "engines": {
-        "vscode": "^1.43.0"
+        "vscode": "^1.74.0"
     },
     "extensionKind": [
         "ui",
@@ -28,7 +28,7 @@
         "sidebar"
     ],
     "activationEvents": [
-        "*"
+        "onStartupFinished"
     ],
     "main": "./out/src/extension",
     "contributes": {
@@ -55,16 +55,6 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Hide the References panel (`Go to References`) when the user clicks into a text editor."
-                },
-                "autoHide.sideBarDelay": {
-                    "type": "number",
-                    "default": 450,
-                    "description": "How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts."
-                },
-                "autoHide.panelDelay": {
-                    "type": "number",
-                    "default": 300,
-                    "description": "How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay."
                 },
                 "autoHide.hideOnOpen": {
                     "type": "boolean",
@@ -93,16 +83,16 @@
     },
     "scripts": {
         "compile": "tsc -watch -p ./",
-        "#test": "node ./node_modules/vscode/bin/test",
         "vscode:prepublish": "tsc -p ./",
-        "#postinstall": "node ./node_modules/vscode/bin/install",
-        "publish": "vsce publish"
+        "package": "vsce package",
+        "publish": "vsce publish",
+        "publish:ovsx": "ovsx publish"
     },
     "devDependencies": {
-        "@types/mocha": "^2.2.32",
-        "@types/node": "^6.0.40",
-        "mocha": "^7.2.0",
-        "typescript": "^2.9.2",
-        "vscode": "^1.1.36"
+        "@types/node": "^26.6.6",
+        "@types/vscode": "~1.74.0",
+        "@vscode/vsce": "^4.1.1",
+        "ovsx": "^1.4.0",
+        "typescript": "^7.0.2"
     }
 }

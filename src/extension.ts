@@ -3,6 +3,9 @@
 import * as vscode from "vscode";
 import { TextEditorSelectionChangeKind } from "vscode";
 
+// short delay so the click registers before the layout shifts
+const HIDE_DELAY_MS = 10;
+
 export function activate(context: vscode.ExtensionContext) {
     const initialConfig = vscode.workspace.getConfiguration("autoHide");
 
@@ -26,7 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     vscode.window.onDidChangeTextEditorSelection(selection => {
         const config = vscode.workspace.getConfiguration("autoHide");
-        const path = vscode.window.activeTextEditor.document.fileName;
+        const path = selection.textEditor.document.fileName;
         const pathIsFile = path.includes(".") || path.includes("\\") || path.includes("/");
         const scheme = selection.textEditor.document.uri.scheme;
 
@@ -48,19 +51,19 @@ export function activate(context: vscode.ExtensionContext) {
             if (config.autoHidePanel) {
                 vscode.commands.executeCommand("workbench.action.closePanel");
             }
-        }, config.panelDelay);
+        }, HIDE_DELAY_MS);
 
         setTimeout(function () {
             if (config.autoHideSideBar) {
                 vscode.commands.executeCommand("workbench.action.closeSidebar");
             }
-        }, config.sideBarDelay);
+        }, HIDE_DELAY_MS);
 
         setTimeout(function () {
             if (config.autoHideAuxiliaryBar) {
                 vscode.commands.executeCommand("workbench.action.closeAuxiliaryBar");
             }
-        }, config.sideBarDelay);
+        }, HIDE_DELAY_MS);
     });
 
     context.subscriptions.push(

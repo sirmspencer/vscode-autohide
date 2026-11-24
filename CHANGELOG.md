@@ -1,5 +1,13 @@
 # Change Log
 
+### 1.1.0
+
+* Remove `autoHide.sideBarDelay` and `autoHide.panelDelay` settings; panels now hide after a fixed 10ms delay.
+* Activate on `onStartupFinished` instead of `*`.
+* Require VS Code 1.74 or later.
+* Replace deprecated `vscode` dev dependency with `@types/vscode`; update TypeScript and `@vscode/vsce`.
+* Add Open VSX publishing for VSCodium.
+
 ### 1.0.10
 
 * Fix deploy of 1.0.9

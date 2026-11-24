@@ -2,7 +2,12 @@
 
 # Auto Hide
 
-Extension install page: <https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide>
+Extension install pages:
+
+* VS Code Marketplace: <https://marketplace.visualstudio.com/items?itemName=sirmspencer.vscode-autohide>
+* Open VSX (VSCodium and other open source builds): <https://open-vsx.org/extension/sirmspencer/vscode-autohide>
+
+Requires VS Code 1.74 or later.
 
 ## Features
 
@@ -21,44 +26,73 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 ## Settings
 
 * `autoHide.autoHideSideBar`: Hide the side bar when the user clicks into a text editor. [boolean, default: `true`]
+* `autoHide.autoHideAuxiliaryBar`: Hide the auxiliary bar (second side bar) when the user clicks into a text editor. [boolean, default: `true`]
 * `autoHide.autoHidePanel`: Hide the panel (output, terminal, etc.) when the user clicks into a text editor. [boolean, default: `true`]
 * `autoHide.autoHideReferences`: Hide the References panel (`Go to References`) when the user clicks into a text editor. [boolean, default: `true`]
-* `autoHide.sideBarDelay`: How long to wait before hiding the side bar. A delay prevents text from being selected. A longer delay allows the horizontal scroll to adjust to the change in selection before the side bar hiding causes the horizontal scroll to adjust, avoiding conflicts. [number, default: `450`]
-* `autoHide.panelDelay`: How long to wait before hiding the panel. Same as for the side bar when the panel is on the side.  If the panel is on the bottom, there is no need for delay. [number, default: `300`]
 * `autoHide.hideOnOpen`: Hide side bar and panel when VSCode first opens. [boolean, default: `false`]
 
 ## Commands
 
 * `autoHide.toggleHideSideBar`: Toggle `autoHide.autoHideSideBar` setting for current workspace. Use this command to pin/unpin the side bar.
+* `autoHide.toggleHideAuxiliaryBar`: Toggle `autoHide.autoHideAuxiliaryBar` setting for current workspace. Use this command to pin/unpin the auxiliary bar.
 * `autoHide.toggleHidePanel`: Toggle `autoHide.autoHidePanel` setting for current workspace. Use this command to pin/unpin the panel.
 
 ## Developing
 
-1) Clone/download repo: <https://github.com/sirmspencer/vscode-autohide.git>
-2) Make code changes in "src" folder.
-3) Run "npm run compile". (this will start compiler in watch mode) [if editing in vscode, Ctrl+Shift+B also works]
-4) In vscode, open the Debug panel and launch the extension from there.
+*Developing and Publishing sections updated with LLM assistance*
+
+1) Clone the repo: <https://github.com/sirmspencer/vscode-autohide.git>
+2) Run `npm install`.
+3) Make code changes in the `src` folder.
+4) Run `npm run compile` to start the compiler in watch mode. In VS Code, Ctrl+Shift+B also works.
+5) In VS Code, open the Run and Debug panel and launch the extension from there.
 
 ## Publishing
 
-### Get access token
+The extension is published to two registries. VS Code uses the Visual Studio Marketplace. VSCodium and other open source builds use Open VSX, which requires a separate publish.
 
-<https://dev.azure.com/>
+Bump `version` in `package.json` and add a `CHANGELOG.md` entry before publishing.
 
-### login
-
-```sh
-vsce login [username]
-```
-
-### Publish package
+### Build the package
 
 ```sh
-vsce package
-vsce publish
+npm run package
 ```
 
-<https://code.visualstudio.com/api/working-with-extensions/publishing-extension>n>
+This produces `vscode-autohide-<version>.vsix`.
+
+### Visual Studio Marketplace
+
+Create a personal access token in Azure DevOps (<https://dev.azure.com/>) with the Marketplace "Manage" scope.
+
+```sh
+npx vsce login sirmspencer
+npm run publish
+```
+
+<https://code.visualstudio.com/api/working-with-extensions/publishing-extension>
+
+### Open VSX
+
+One-time setup:
+
+1) Sign in to <https://open-vsx.org> with GitHub and sign the Eclipse Foundation publisher agreement.
+2) Create an access token under user settings.
+3) Create the namespace:
+
+```sh
+npx ovsx create-namespace sirmspencer -p <token>
+```
+
+Publish the packaged `.vsix`, so both registries receive the same build:
+
+```sh
+npm run publish:ovsx -- vscode-autohide-<version>.vsix -p <token>
+```
+
+The token can also be supplied through the `OVSX_PAT` environment variable instead of `-p`.
+
+<https://github.com/eclipse/openvsx/wiki/Publishing-Extensions>
 
 ## Credit to 'VTools for Visual Studio Code'
 
