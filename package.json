@@ -2,7 +2,7 @@
     "name": "vscode-autohide",
     "displayName": "Auto Hide",
     "description": "A tool to autohide the sidebar and terminal panel.",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "publisher": "sirmspencer",
     "repository": {
         "url": "https://github.com/sirmspencer/vscode-autohide"
@@ -53,8 +53,13 @@
                 },
                 "autoHide.autoHideReferences": {
                     "type": "boolean",
-                    "default": true,
-                    "description": "Hide the References panel (`Go to References`) when the user clicks into a text editor."
+                    "default": false,
+                    "description": "Hide the References panel (`Go to References`) when the user clicks into a text editor. Clicking inside the References panel also counts as a click into a text editor, which closes the panel while it is being used."
+                },
+                "autoHide.keepSideBarWhileDebugging": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Do not hide the side bar while a debug session is running."
                 },
                 "autoHide.hideOnOpen": {
                     "type": "boolean",

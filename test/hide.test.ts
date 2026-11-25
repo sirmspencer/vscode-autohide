@@ -36,6 +36,20 @@ test("findHideCommands only includes enabled parts", () => {
     );
 });
 
+test("findHideCommands keeps the side bar while debugging when configured", () => {
+    const config = { autoHideSideBar: true, autoHidePanel: true, keepSideBarWhileDebugging: true };
+
+    assert.deepEqual(findHideCommands(config, true), ["workbench.action.closePanel"]);
+    assert.deepEqual(findHideCommands(config, false), [
+        "workbench.action.closePanel",
+        "workbench.action.closeSidebar",
+    ]);
+});
+
+test("findHideCommands hides the side bar while debugging by default", () => {
+    assert.deepEqual(findHideCommands({ autoHideSideBar: true }, true), ["workbench.action.closeSidebar"]);
+});
+
 test("isPlainClick accepts a mouse click in a file", () => {
     assert.equal(isPlainClick(plainClick), true);
 });

@@ -1,5 +1,14 @@
 # Change Log
 
+### 1.1.1
+
+* `autoHide.autoHideReferences` now defaults to `false`. Clicking inside the References panel counts as a click into a text editor, so the panel closed while it was being used (#34).
+* The References panel now closes after the same 10ms delay as the other parts instead of immediately.
+* Add `autoHide.keepSideBarWhileDebugging` to keep the side bar open while a debug session is running (#41).
+* Document a keybinding for closing the terminal with Escape (#47).
+* Fix the text selection listener not being disposed when the extension is deactivated.
+* Add unit tests for the click detection and hide logic; remove the obsolete test runner.
+
 ### 1.1.0
 
 * Remove `autoHide.sideBarDelay` and `autoHide.panelDelay` settings; panels now hide after a fixed 10ms delay.
@@ -20,7 +29,9 @@
 
 ### 1.0.8
 
-* user submitted PRs.  I cant remember what they do.  Please help if you submitted them.
+* Add `autoHide.autoHideReferences` to close the References panel (`Go to References`) on click, enabled by default (#25).
+* Do not hide the panel when clicking inside the Output panel (#30).
+* Add `autoHide.autoHideAuxiliaryBar` and the `autoHide.toggleHideAuxiliaryBar` command for the auxiliary bar (#31).
 
 ### 1.0.7
 

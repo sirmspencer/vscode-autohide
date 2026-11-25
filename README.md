@@ -21,21 +21,44 @@ I highly recommend trying the sidebar on the right side.  The side bar does not 
 
 ### Auto-hide bottom panel
 
-Same thing as above, except for the bottom panel (output, terminal, etc. are contained in the panel).
+Same thing as above, except for the bottom panel (output, terminal, etc. are contained in the panel). Clicks inside the Output panel do not hide it.
+
+### Auto-hide auxiliary bar
+
+Same thing as above, for the auxiliary bar (the second side bar).
+
+### Auto-hide References panel
+
+Optionally closes the References panel opened by `Go to References`. This is disabled by default; see `autoHide.autoHideReferences` below.
 
 ## Settings
 
 * `autoHide.autoHideSideBar`: Hide the side bar when the user clicks into a text editor. [boolean, default: `true`]
 * `autoHide.autoHideAuxiliaryBar`: Hide the auxiliary bar (second side bar) when the user clicks into a text editor. [boolean, default: `true`]
 * `autoHide.autoHidePanel`: Hide the panel (output, terminal, etc.) when the user clicks into a text editor. [boolean, default: `true`]
-* `autoHide.autoHideReferences`: Hide the References panel (`Go to References`) when the user clicks into a text editor. [boolean, default: `true`]
-* `autoHide.hideOnOpen`: Hide side bar and panel when VSCode first opens. [boolean, default: `false`]
+* `autoHide.autoHideReferences`: Hide the References panel (`Go to References`) when the user clicks into a text editor. Clicking inside the References panel also counts as a click into a text editor, which closes the panel while it is being used. [boolean, default: `false`]
+* `autoHide.keepSideBarWhileDebugging`: Do not hide the side bar while a debug session is running. [boolean, default: `false`]
+* `autoHide.hideOnOpen`: When VS Code first opens, hide each part whose auto-hide setting is enabled. [boolean, default: `false`]
 
 ## Commands
 
 * `autoHide.toggleHideSideBar`: Toggle `autoHide.autoHideSideBar` setting for current workspace. Use this command to pin/unpin the side bar.
 * `autoHide.toggleHideAuxiliaryBar`: Toggle `autoHide.autoHideAuxiliaryBar` setting for current workspace. Use this command to pin/unpin the auxiliary bar.
 * `autoHide.toggleHidePanel`: Toggle `autoHide.autoHidePanel` setting for current workspace. Use this command to pin/unpin the panel.
+
+## Tips
+
+### Hide the terminal with Escape
+
+The extension does not bind any keys. To close the panel by pressing Escape while the terminal has focus, add the following to `keybindings.json`. Programs running in the terminal will no longer receive the Escape key.
+
+```json
+{
+    "key": "escape",
+    "command": "workbench.action.closePanel",
+    "when": "terminalFocus"
+}
+```
 
 ## Developing
 

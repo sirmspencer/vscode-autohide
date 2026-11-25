@@ -15,7 +15,9 @@ function findConfig() {
 }
 
 function hideAll(config: vscode.WorkspaceConfiguration) {
-    for (const command of findHideCommands(config)) {
+    const debugging = vscode.debug.activeDebugSession !== undefined;
+
+    for (const command of findHideCommands(config, debugging)) {
         vscode.commands.executeCommand(command);
     }
 }

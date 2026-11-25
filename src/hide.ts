@@ -5,6 +5,7 @@ export interface HideConfig {
     autoHidePanel?: boolean;
     autoHideSideBar?: boolean;
     autoHideAuxiliaryBar?: boolean;
+    keepSideBarWhileDebugging?: boolean;
     // lets vscode's WorkspaceConfiguration be passed in directly
     readonly [key: string]: unknown;
 }
@@ -16,7 +17,7 @@ export interface ClickInfo {
     scheme: string;
 }
 
-export function findHideCommands(config: HideConfig): string[] {
+export function findHideCommands(config: HideConfig, debugging = false): string[] {
     const commands: string[] = [];
 
     if (config.autoHideReferences) {
@@ -25,7 +26,7 @@ export function findHideCommands(config: HideConfig): string[] {
     if (config.autoHidePanel) {
         commands.push("workbench.action.closePanel");
     }
-    if (config.autoHideSideBar) {
+    if (config.autoHideSideBar && !(debugging && config.keepSideBarWhileDebugging)) {
         commands.push("workbench.action.closeSidebar");
     }
     if (config.autoHideAuxiliaryBar) {
