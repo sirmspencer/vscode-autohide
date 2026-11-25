@@ -11,6 +11,7 @@
         "rootDir": "."
     },
     "include": [
-        "src"
+        "src",
+        "test"
     ]
 }

@@ -45,7 +45,8 @@ Same thing as above, except for the bottom panel (output, terminal, etc. are con
 2) Run `npm install`.
 3) Make code changes in the `src` folder.
 4) Run `npm run compile` to start the compiler in watch mode. In VS Code, Ctrl+Shift+B also works.
-5) In VS Code, open the Run and Debug panel and launch the extension from there.
+5) Run `npm test` to compile and run the unit tests.
+6) In VS Code, open the Run and Debug panel and launch the extension from there.
 
 ## Publishing
 

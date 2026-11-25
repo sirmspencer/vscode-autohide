@@ -84,6 +84,7 @@
     "scripts": {
         "compile": "tsc -watch -p ./",
         "vscode:prepublish": "tsc -p ./",
+        "test": "tsc -p ./ && node --test \"out/test/**/*.test.js\"",
         "package": "vsce package",
         "publish": "vsce publish",
         "publish:ovsx": "ovsx publish"
