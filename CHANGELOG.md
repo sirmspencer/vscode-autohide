@@ -1,5 +1,9 @@
 # Change Log
 
+### 1.1.2
+
+* Publish releases to the Visual Studio Marketplace and Open VSX from a GitHub Actions workflow triggered by version tags.
+
 ### 1.1.1
 
 * `autoHide.autoHideReferences` now defaults to `false`. Clicking inside the References panel counts as a click into a text editor, so the panel closed while it was being used (#34).

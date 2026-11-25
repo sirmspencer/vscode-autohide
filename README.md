@@ -73,48 +73,41 @@ The extension does not bind any keys. To close the panel by pressing Escape whil
 
 ## Publishing
 
-The extension is published to two registries. VS Code uses the Visual Studio Marketplace. VSCodium and other open source builds use Open VSX, which requires a separate publish.
+The extension is published to two registries. VS Code uses the Visual Studio Marketplace. VSCodium and other open source builds use Open VSX.
 
-Bump `version` in `package.json` and add a `CHANGELOG.md` entry before publishing.
+### Release
 
-### Build the package
+Publishing is done by the `release` GitHub Actions workflow (`.github/workflows/release.yml`), which runs when a `v*` tag is pushed.
+
+1) Bump `version` in `package.json` and add a `CHANGELOG.md` entry.
+2) Commit and push to master.
+3) Tag the commit with the same version and push the tag:
+
+```sh
+git tag v1.2.3
+git push origin v1.2.3
+```
+
+The workflow fails if the tag does not match the `package.json` version. Otherwise it runs the tests, packages the extension, attaches the `.vsix` to a GitHub release, and publishes it to both registries.
+
+### Repository secrets
+
+The workflow reads two repository secrets:
+
+* `VSCE_PAT`: an Azure DevOps (<https://dev.azure.com/>) personal access token with the Marketplace "Manage" scope.
+* `OVSX_PAT`: an Open VSX (<https://open-vsx.org>) access token for the `sirmspencer` namespace.
+
+### Publishing manually
+
+With `VSCE_PAT` and `OVSX_PAT` set in the environment:
 
 ```sh
 npm run package
-```
-
-This produces `vscode-autohide-<version>.vsix`.
-
-### Visual Studio Marketplace
-
-Create a personal access token in Azure DevOps (<https://dev.azure.com/>) with the Marketplace "Manage" scope.
-
-```sh
-npx vsce login sirmspencer
-npm run publish
+npx vsce publish --packagePath vscode-autohide-<version>.vsix
+npx ovsx publish vscode-autohide-<version>.vsix
 ```
 
 <https://code.visualstudio.com/api/working-with-extensions/publishing-extension>
-
-### Open VSX
-
-One-time setup:
-
-1) Sign in to <https://open-vsx.org> with GitHub and sign the Eclipse Foundation publisher agreement.
-2) Create an access token under user settings.
-3) Create the namespace:
-
-```sh
-npx ovsx create-namespace sirmspencer -p <token>
-```
-
-Publish the packaged `.vsix`, so both registries receive the same build:
-
-```sh
-npm run publish:ovsx -- vscode-autohide-<version>.vsix -p <token>
-```
-
-The token can also be supplied through the `OVSX_PAT` environment variable instead of `-p`.
 
 <https://github.com/eclipse/openvsx/wiki/Publishing-Extensions>
 
